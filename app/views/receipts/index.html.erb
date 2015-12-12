@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Facturas de: <%= @client.first_name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Person</th>
+      <th>Description</th>
+      <th>Total amount</th>
+      <th>Emission date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client.receipts.each do |receipt| %>
+      <tr>
+        <td><%= receipt.person.name %></td>
+        <td><%= receipt.description %></td>
+        <td><%= receipt.total_amount %></td>
+        <td><%= receipt.emission_date %></td>
+        <td><%= link_to 'Show', client_receipt_path(@client, receipt) %></td>
+        <td><%= link_to 'Edit', edit_client_receipt_path(@client, receipt) %></td>
+        <td><%= link_to 'Destroy', [@client,receipt], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Atras', client_path(@client) %>
+
+<br>

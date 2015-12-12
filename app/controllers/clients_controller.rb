@@ -10,6 +10,8 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
+    now = Time.now.utc
+    @age = now.year - @client.birth_date.year - (@client.birth_date.to_time.change(:year => now.year) > now ? 1 : 0)
   end
 
   # GET /clients/new

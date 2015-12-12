@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>Birth date:</strong>
-  <%= @client.birth_date %>
+  <strong>Edad:</strong>
+  <%= @age %>
 </p>
 
 <p>
@@ -45,5 +45,6 @@
   <%= @client.skype %>
 </p>
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<%= link_to 'Crear factura', new_client_receipt_path(@client)%> |
+<%= link_to 'Editar', edit_client_path(@client) %> |
+<%= link_to 'Atras', clients_path %>
