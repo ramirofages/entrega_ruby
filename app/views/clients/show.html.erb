@@ -43,3 +43,11 @@
 
 <br><br>
 <h2> Las 5 personas mas facturadas: </h2>
+
+ <ul>
+  <% @personas_facturadas.each do |persona| %>
+    <li> <%= persona[:name] %>, con <%= persona[:amount] %> </li>
+  <% end %>
+</ul> 
+
+
