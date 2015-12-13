@@ -4,24 +4,24 @@ class ReceiptsController < ApplicationController
   # GET /receipts
   # GET /receipts.json
   def index
+    @client = Client.find(params[:client_id])  end
+
+  def show  
+  end
+
+  def select_person
     @client = Client.find(params[:client_id])
+    @people = Person.all
   end
 
-  # GET /receipts/1
-  # GET /receipts/1.json
-  def show
-  end
-
-  # GET /receipts/new
+  # POST
   def new
-    @client = Client.find(params[:client_id])
     @receipt = Receipt.new
-    @receipt.client = @client
-    
+    @receipt.client = Client.find(params.require(:client_id))
+    @receipt.person = Person.find(params.require(:person_id))
   end
 
-  # GET /receipts/1/edit
-  def edit
+  def edit  
   end
 
   # POST /receipts
@@ -31,7 +31,7 @@ class ReceiptsController < ApplicationController
 
     respond_to do |format|
       if @receipt.save
-        format.html { redirect_to client_receipts(@receipt.client), notice: 'Receipt was successfully created.' }
+        format.html { redirect_to @receipt.client, notice: 'Receipt was successfully created.' }
         format.json { render :show, status: :created, location: url_receipt(@receipt) }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class ReceiptsController < ApplicationController
   def update
     respond_to do |format|
       if @receipt.update(receipt_params)
-        format.html { redirect_to client_receipts(@receipt.client), notice: 'Receipt was successfully updated.' }
+        format.html { redirect_to @receipt.client, notice: 'Receipt was successfully updated.' }
         format.json { render :show, status: :ok, location: url_receipt(@receipt) }
       else
         format.html { render :edit }
@@ -74,4 +74,6 @@ class ReceiptsController < ApplicationController
     def receipt_params
       params.require(:receipt).permit(:client_id, :person_id, :description, :total_amount, :emission_date)
     end
+
+
 end

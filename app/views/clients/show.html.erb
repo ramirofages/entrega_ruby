@@ -45,6 +45,7 @@
   <%= @client.skype %>
 </p>
 
-<%= link_to 'Crear factura', new_client_receipt_path(@client)%> |
+<%= link_to 'Crear factura', select_person_new_client_receipt_path(@client)%> |
+<%= link_to 'Ver facturas', client_receipts_path(@client)%> |
 <%= link_to 'Editar', edit_client_path(@client) %> |
 <%= link_to 'Atras', clients_path %>

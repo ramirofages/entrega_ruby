@@ -4,22 +4,17 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.all  end
+
+  def show                
   end
 
-  # GET /people/1
-  # GET /people/1.json
-  def show
-  end
-
-  # GET /people/new
   def new
-    @person = Person.new
+    @person = Person.new  end
+
+  def edit                
   end
 
-  # GET /people/1/edit
-  def edit
-  end
 
   # POST /people
   # POST /people.json

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seleccionar persona a facturar para el cliente <%= @client.first_name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cuit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.name %></td>
+        <td><%= person.cuit %></td>
+        <td><%= form_tag(client_receipts_path(@client)) do %>
+          
+            <%= text_field_tag("person_id",person.id, hidden: true) %>
+            <%= submit_tag("Seleccionar") %>
+          <% end %>
+        </td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Person', new_person_path %>
