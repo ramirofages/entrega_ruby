@@ -1,14 +1,5 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @client.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @client.last_name %>
-</p>
+<h1> Datos del cliente: <%= @client.first_name%> <%= @client.last_name%></h1> 
 
 <p>
   <strong>Edad:</strong>
@@ -45,7 +36,10 @@
   <%= @client.skype %>
 </p>
 
-<%= link_to 'Crear factura', select_person_new_client_receipt_path(@client)%> |
+<%= link_to 'Crear factura', new_client_receipt_path(@client)%> |
 <%= link_to 'Ver facturas', client_receipts_path(@client)%> |
 <%= link_to 'Editar', edit_client_path(@client) %> |
 <%= link_to 'Atras', clients_path %>
+
+<br><br>
+<h2> Las 5 personas mas facturadas: </h2>

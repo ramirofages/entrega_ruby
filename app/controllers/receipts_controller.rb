@@ -9,16 +9,12 @@ class ReceiptsController < ApplicationController
   def show  
   end
 
-  def select_person
-    @client = Client.find(params[:client_id])
-    @people = Person.all
-  end
-
   # POST
   def new
     @receipt = Receipt.new
     @receipt.client = Client.find(params.require(:client_id))
-    @receipt.person = Person.find(params.require(:person_id))
+    @people = Person.pluck(:name, :id)
+    
   end
 
   def edit  
@@ -31,7 +27,7 @@ class ReceiptsController < ApplicationController
 
     respond_to do |format|
       if @receipt.save
-        format.html { redirect_to @receipt.client, notice: 'Receipt was successfully created.' }
+        format.html { redirect_to client_receipts_path(@receipt.client), notice: 'Receipt was successfully created.' }
         format.json { render :show, status: :created, location: url_receipt(@receipt) }
       else
         format.html { render :new }
@@ -45,7 +41,7 @@ class ReceiptsController < ApplicationController
   def update
     respond_to do |format|
       if @receipt.update(receipt_params)
-        format.html { redirect_to @receipt.client, notice: 'Receipt was successfully updated.' }
+        format.html { redirect_to client_receipts_path(@receipt.client), notice: 'Receipt was successfully updated.' }
         format.json { render :show, status: :ok, location: url_receipt(@receipt) }
       else
         format.html { render :edit }

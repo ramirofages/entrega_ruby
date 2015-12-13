@@ -13,7 +13,11 @@
   <% end %>
 
   <%= f.text_field :client_id,  hidden: true %>
-  <%= f.text_field :person_id, hidden: true %>
+
+  <div class="field">
+    <%= f.label "Persona a facturar: " %>
+    <%= f.select(:person_id, options_for_select(@people)) %>
+  </div>
 
   <div class="field">
     <%= f.label :description %><br>
