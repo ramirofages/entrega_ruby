@@ -19,6 +19,13 @@
     <%= f.label :cuit %><br>
     <%= f.text_field :cuit %>
   </div>
+
+  <div class="field">
+    
+    <%= f.check_box :isJuridic, checked: "checked" %>
+    <%= f.label :isJuridic %><br>
+  </div>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

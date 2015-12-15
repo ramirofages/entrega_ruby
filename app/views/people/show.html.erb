@@ -10,5 +10,12 @@
   <%= @person.cuit %>
 </p>
 
+<p>
+  <strong>Juridica: <%= @person.isJuridic %> </strong>
+  
+ 
+</p>
+
+<br>
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
