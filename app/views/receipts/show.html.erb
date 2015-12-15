@@ -2,12 +2,12 @@
 
 <p>
   <strong>Client:</strong>
-  <%= @receipt.client %>
+  <%= @receipt.client.first_name %>
 </p>
 
 <p>
   <strong>Person:</strong>
-  <%= @receipt.person %>
+  <%= @receipt.person.name %>
 </p>
 
 <p>
@@ -25,5 +25,5 @@
   <%= @receipt.emission_date %>
 </p>
 
-<%= link_to 'Edit', edit_client_receipt_path(@client,@receipt) %> |
+<%= link_to 'Edit', edit_client_receipt_path(@receipt.client,@receipt) %> |
 <%= link_to 'Back', client_receipts_path %>

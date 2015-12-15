@@ -7,6 +7,7 @@ class ReceiptsController < ApplicationController
     @client = Client.find(params[:client_id])  end
 
   def show  
+   
   end
 
   # POST
@@ -17,7 +18,9 @@ class ReceiptsController < ApplicationController
     
   end
 
-  def edit  
+  def edit 
+    @receipt.client = Client.find(params.require(:client_id))
+    @people = Person.pluck(:name, :id) 
   end
 
   # POST /receipts

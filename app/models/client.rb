@@ -30,7 +30,10 @@ class Client < ActiveRecord::Base
 		end
 	end
 
-	public def total_revenue_by_year
-	
+	public def receipts_amount_by_month(from_starting_date)
+		receipts.where(:emission_date => from_starting_date..Date.today).count
+
+
+
 	end 
 end
