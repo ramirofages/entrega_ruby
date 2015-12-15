@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>EntregaRuby</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>EntregaRuby</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body> 
 
-<%= yield %>
+		<nav >
+		    <div class="nav-wrapper" >
+		      <a href="#" class="brand-logo left" >Ruby</a>
+		      <ul id="nav-mobile" class="right">
+		        <li><a href="/clients">Clientes</a></li>
+		        <li><a href="/people">Personas</a></li>
+		      </ul>
+		    </div>
+		</nav>
 
-</body>
+		<div class="container">
+		 
+		  <%= yield %>
+		        
+		</div>
+		
+	</body>
 </html>

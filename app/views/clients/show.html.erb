@@ -42,11 +42,11 @@
 <%= link_to 'Atras', clients_path %>
 
 <br><br>
-<h2> Las 5 personas mas facturadas: </h2>
+<h2> Top 5 personas mas facturadas: </h2>
 
  <ul>
   <% @personas_facturadas.each do |persona| %>
-    <li> <%= persona[:name] %>, con <%= persona[:amount] %> </li>
+    <li> <%= persona[:name] %>, con $<%= persona[:amount] %> </li>
   <% end %>
 </ul> 
 
@@ -54,7 +54,15 @@
 
 <ul>
   <% @revenue_by_year.each do |revenue| %>
-    <li>En el a&ntilde;o <%= revenue[:year] %> facturo <%= revenue[:amount] %> </li>
+    <li>En el a&ntilde;o <%= revenue[:year] %> facturo $<%= revenue[:amount] %> </li>
+  <% end %>
+</ul> 
+
+<h2> Cantidad de facturas por mes desde enero del <%= Date.today.year %>: </h2>
+
+<ul>
+  <% @receipts_amount_by_month.each do |receipt_amount| %>
+    <li>En el mes <%= receipt_amount[:month] %> genero <%= receipt_amount[:amount] %> factura/s</li>
   <% end %>
 </ul> 
 
