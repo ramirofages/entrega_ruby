@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1> Datos del cliente: <%= @client.first_name%> <%= @client.last_name%></h1> 
+<h3 class="header" > Datos del cliente: <%= @client.first_name%> <%= @client.last_name%></h1> 
 
 <p>
   <strong>Edad:</strong>
@@ -42,29 +42,30 @@
 <%= link_to 'Atras', clients_path %>
 
 <br><br>
-<h2> Top 5 personas mas facturadas: </h2>
+<h4 class="header"> Top 5 personas mas facturadas: </h2>
 
- <ul>
+ <ul class="collection">
   <% @personas_facturadas.each do |persona| %>
-    <li> <%= persona[:name] %>, con $<%= persona[:amount] %> </li>
+    <li class="collection-item"> <%= persona[:name] %>, con $<%= persona[:amount] %> </li>
   <% end %>
 </ul> 
 
-<h2> Ganancias por a&ntilde;o: </h2>
+<h4 class="header"> Ganancias por a&ntilde;o: </h2>
 
-<ul>
+<ul class="collection">
   <% @revenue_by_year.each do |revenue| %>
-    <li>En el a&ntilde;o <%= revenue[:year] %> facturo $<%= revenue[:amount] %> </li>
+    <li class="collection-item">En el a&ntilde;o <%= revenue[:year] %> facturo $<%= revenue[:amount] %> </li>
   <% end %>
 </ul> 
 
-<h2> Cantidad de facturas por mes desde enero del <%= Date.today.year %>: </h2>
+<h4 class="header"> Cantidad de facturas por mes desde enero del <%= Date.today.year %>: </h2>
 
-<ul>
+<ul class="collection">
   <% @receipts_amount_by_month.each do |receipt_amount| %>
-    <li>En el mes <%= receipt_amount[:month] %> genero <%= receipt_amount[:amount] %> factura/s</li>
+    <li class="collection-item">En el mes <%= receipt_amount[:month] %> genero <%= receipt_amount[:amount] %> factura/s</li>
   <% end %>
 </ul> 
+
 
 
 
