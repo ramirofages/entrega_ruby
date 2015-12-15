@@ -50,4 +50,13 @@
   <% end %>
 </ul> 
 
+<h2> Ganancias por a&ntilde;o: </h2>
+
+<ul>
+  <% @revenue_by_year.each do |revenue| %>
+    <li>En el a&ntilde;o <%= revenue[:year] %> facturo <%= revenue[:amount] %> </li>
+  <% end %>
+</ul> 
+
+
 

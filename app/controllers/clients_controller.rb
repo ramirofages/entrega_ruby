@@ -11,6 +11,8 @@ class ClientsController < ApplicationController
   # GET /clients/1.json
   def show
 
+    @revenue_by_year = @client.total_revenue_by_year
+    @receips_amount_by_month = @client.receips_amount_by_month
     @personas_facturadas = @client.personas_mas_facturadas(5)
     now = Time.now.utc
     @age = now.year - @client.birth_date.year - (@client.birth_date.to_time.change(:year => now.year) > now ? 1 : 0)
@@ -19,7 +21,6 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
-    
   end
 
   # GET /clients/1/edit

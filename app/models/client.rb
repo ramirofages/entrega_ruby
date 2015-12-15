@@ -10,7 +10,27 @@ class Client < ActiveRecord::Base
 				"amount": 	elem.amount 
 			}
     	end
+	end 
 
+	public def total_revenue_by_year
 
+		datos = receipts.group_by{|receipt| receipt.emission_date.year}
+
+		# perdi una tarde entera buscando la forma de hacer el group by
+		# por año y despues una suma del monto usando los metodos de active record, pero no 
+		# lo pude lograr, asique termine haciendo la suma manualmente.
+		# Retornamos un arreglo del tipo [ {"year": 2014 ,"amount": 50}], {...}]
+		datos.map do |year,receipts| 
+			{ 
+				year: year, 
+				amount: receipts.inject(0) do |sum, receipt| 
+				  	sum + receipt.total_amount
+				end 
+			}
+		end
+	end
+
+	public def total_revenue_by_year
+	
 	end 
 end
