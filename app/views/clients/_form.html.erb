@@ -15,31 +15,31 @@
 
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, :required=>true %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br>
+    <%= f.label :last_name :required=>true %><br>
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
     <%= f.label :birth_date %><br>
-    <%= f.date_field :birth_date, :class =>"datepicker" %>
+    <%= f.date_field :birth_date, :class =>"datepicker", :required=>true %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+    <%= f.text_field :gender, :required=>true %>
   </div>
   <div class="field">
     <%= f.label :document_number %><br>
-    <%= f.number_field :document_number %>
+    <%= f.number_field :document_number, :required=>true %>
   </div>
   <div class="field">
     <%= f.label :cuit %><br>
-    <%= f.text_field :cuit %>
+    <%= f.text_field :cuit, :required=>true %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :required=>true %>
   </div>
   <div class="field">
     <%= f.label :phone_number %><br>

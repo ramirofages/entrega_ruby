@@ -13,16 +13,16 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :required=>true %>
   </div>
   <div class="field">
     <%= f.label :cuit %><br>
-    <%= f.text_field :cuit %>
+    <%= f.text_field :cuit, :required=>true %>
   </div>
 
   <div class="field">
     
-    <%= f.check_box :isJuridic, checked: "checked" %>
+    <%= f.check_box :isJuridic, checked: "checked", :required=>true %>
     <%= f.label :isJuridic %><br>
   </div>
   <br>

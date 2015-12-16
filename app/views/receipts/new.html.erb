@@ -1,7 +1,7 @@
-<h1>Nueva factura</h1>
+<h3 class="header">Nueva factura</h1>
 <br>
-<h2>Del cliente: <%= @receipt.client.first_name %> </h2>
+<h4 class="header">Del cliente: <%= @receipt.client.first_name %> </h2>
 
 <%= render 'form' %>
-
+<br><br>
 <%= link_to 'Back', client_path(@receipt.client) %>

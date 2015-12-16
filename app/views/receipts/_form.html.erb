@@ -16,20 +16,20 @@
 
   <div class="field">
     <%= f.label "Persona a facturar: " %>
-    <%= f.select(:person_id, options_for_select(@people)) %>
+    <%= f.select(:person_id, options_for_select(@people), {}, { :class =>"browser-default", :required=>true} ) %>
   </div>
 
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :required=>true %>
   </div>
   <div class="field">
     <%= f.label :total_amount %><br>
-    <%= f.number_field :total_amount %>
+    <%= f.number_field :total_amount, :required=>true %>
   </div>
   <div class="field">
     <%= f.label :emission_date %><br>
-    <%= f.date_field :emission_date, :class =>"datepicker" %>
+    <%= f.date_field :emission_date, :class =>"datepicker", :required=>true %>
   </div>
   <div class="actions">
     <%= f.submit %>
