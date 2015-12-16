@@ -21,3 +21,12 @@ two:
   email: MyString
   phone_number: 1
   skype: MyString
+
+without_contact_info:
+  first_name: MyString
+  last_name: MyString
+  birth_date: 2015-12-11
+  gender: MyString
+  document_number: 1
+  cuit: MyString
+

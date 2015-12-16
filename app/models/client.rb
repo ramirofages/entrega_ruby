@@ -1,5 +1,8 @@
 class Client < ActiveRecord::Base
 	has_many :receipts , dependent: :destroy
+	validates :first_name, :last_name, :cuit, :birth_date, :email, :document_number, :gender, presence: true
+	validates :first_name, format: { with: /\A[a-zA-Z]+\z/ }
+
 
 	public def personas_mas_facturadas (people_limit)
 		datos = receipts.group(:person_id).select('person_id, SUM(total_amount) as amount').limit(people_limit).order('amount desc')
@@ -18,7 +21,7 @@ class Client < ActiveRecord::Base
 
 		# perdi una tarde entera buscando la forma de hacer el group by
 		# por año y despues una suma del monto usando los metodos de active record, pero no 
-		# lo pude lograr, asique termine haciendo la suma manualmente.
+		# lo pude lograr, asique termine haciendo la suma manualmente :( .
 		# Retornamos un arreglo del tipo [ {"year": 2014 ,"amount": 50}, {...}]
 		datos.map do |year,receipts| 
 			{ 
