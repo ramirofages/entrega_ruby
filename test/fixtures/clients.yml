@@ -22,7 +22,7 @@ two:
   phone_number: 1
   skype: MyString
 
-with-receipts:
+with_receipts:
   first_name: MyString
   last_name: MyString
   birth_date: 2015-12-11

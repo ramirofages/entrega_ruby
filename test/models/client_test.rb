@@ -37,6 +37,10 @@ setup do
     	c.phone_number="123"
     	c.skype="asd@skype.com"
     end
+
+    @client_without_receipts = clients(:one)
+    @client_with_receipts = clients(:with_receipts)
+
 end
 
 
@@ -61,6 +65,24 @@ end
 		assert_no_difference('Client.count') do
 			@client_with_invalid_info.save
 		end
-
 	end
+
+    test "should delete client without receipts" do
+        
+        assert_difference('Client.count', -1) do
+            @client_without_receipts.destroy
+        end
+    end
+
+    test "should delete client with receipts along with his receipts" do
+
+        #guardamos la cantidad de facturas que deberian quedar desp del borrado
+        receipt_amount = Receipt.count -  @client_with_receipts.receipts.count
+
+        assert_difference('Client.count', -1) do
+            @client_with_receipts.destroy
+        end
+
+        assert_equal(receipt_amount, Receipt.count)
+    end
 end

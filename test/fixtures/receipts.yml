@@ -1,15 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  client_id: 
-  person_id: 
+  client: with_receipts
+  person: one
   description: MyText
   total_amount: 1
   emission_date: 2015-12-11
 
 two:
-  client_id: 
-  person_id: 
+  client: with_receipts
+  person: one
+  description: MyText
+  total_amount: 1
+  emission_date: 2015-12-11
+
+three:
+  client: with_receipts
+  person: one
   description: MyText
   total_amount: 1
   emission_date: 2015-12-11

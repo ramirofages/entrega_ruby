@@ -4,7 +4,7 @@ class Receipt < ActiveRecord::Base
 
   validates :person_id, :client_id, :description, :total_amount, :emission_date, presence: true
   
-  # /[0-9]*/ esta expresion regular deberia permitir solo numeros...
-  validates :total_amount, :person_id, :client_id, format: { with: /[0-9]*/, message: "only allows numbers"  }
+  validates :person_id, :client_id, numericality: { only_integer: true }
+  validates :total_amount, numericality: true
   
 end
