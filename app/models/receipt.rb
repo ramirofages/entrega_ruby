@@ -6,5 +6,6 @@ class Receipt < ActiveRecord::Base
   
   validates :person_id, :client_id, numericality: { only_integer: true }
   validates :total_amount, numericality: true
+  validates :emission_date, date: true
   
 end
