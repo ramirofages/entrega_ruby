@@ -8,9 +8,9 @@ setup do
     	c.first_name="asd"
     	c.last_name="asd"
     	c.birth_date= Date.today
-    	c.cuit=1
+    	c.cuit=22-22-22
     	c.document_number=1
-    	c.gender="m"
+    	c.gender="M"
     	c.email="asd@asd.com"
     	c.phone_number="123"
     	c.skype="asd@skype.com"
@@ -21,18 +21,18 @@ setup do
     	c.first_name="asd"
     	c.last_name="asd"
     	c.birth_date= Date.today
-    	c.cuit=1
+    	c.cuit=22-22-22
     	c.document_number=1
-    	c.gender="m"
+    	c.gender="M"
     end
 
      @client_with_invalid_info = Client.new do |c|
     	c.first_name=123123
     	c.last_name="asd"
     	c.birth_date= Date.today
-    	c.cuit=1
+    	c.cuit=22-22-22
     	c.document_number=1
-    	c.gender="m"
+    	c.gender="F"
     	c.email="asd@asd.com"
     	c.phone_number="123"
     	c.skype="asd@skype.com"

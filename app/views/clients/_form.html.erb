@@ -28,8 +28,10 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender, :required=>true %>
+    <%= f.select :gender, options_for_select(@genders,"M"), {}, { :class =>"browser-default", :required=>true} %>
   </div>
+  <br>
+  
   <div class="field">
     <%= f.label :document_number %><br>
     <%= f.number_field :document_number, :required=>true %>

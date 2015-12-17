@@ -4,10 +4,10 @@ one:
   first_name: MyString
   last_name: MyString
   birth_date: 2015-12-11
-  gender: MyString
+  gender: M
   document_number: 1
-  cuit: MyString
-  email: MyString
+  cuit: 22-22-22
+  email: MyString@string.com
   phone_number: 1
   skype: MyString
 
@@ -15,10 +15,10 @@ two:
   first_name: MyString
   last_name: MyString
   birth_date: 2015-12-11
-  gender: MyString
+  gender: M
   document_number: 1
-  cuit: MyString
-  email: MyString
+  cuit: 22-22-22
+  email: MyString@string.com
   phone_number: 1
   skype: MyString
 
@@ -26,10 +26,10 @@ with_receipts:
   first_name: MyString
   last_name: MyString
   birth_date: 2015-12-11
-  gender: MyString
+  gender: F
   document_number: 1
-  cuit: MyString
-  email: MyString
+  cuit: 22-22-22
+  email: MyString@string.com
   phone_number: 1
   skype: MyString
 

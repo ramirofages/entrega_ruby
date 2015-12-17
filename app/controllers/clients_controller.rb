@@ -22,10 +22,13 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
+    @genders = [["Masculino","M"],["Femenino","F"]]
+    
   end
 
   # GET /clients/1/edit
   def edit
+    @genders = [["Masculino","M"],["Femenino","F"]]
   end
 
   # POST /clients
@@ -38,6 +41,7 @@ class ClientsController < ApplicationController
         format.html { redirect_to @client, notice: 'Client was successfully created.' }
         format.json { render :show, status: :created, location: @client }
       else
+        @genders = [["Masculino","M"],["Femenino","F"]]
         format.html { render :new }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
