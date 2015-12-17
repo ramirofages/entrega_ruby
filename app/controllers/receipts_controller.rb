@@ -33,6 +33,7 @@ class ReceiptsController < ApplicationController
         format.html { redirect_to client_receipts_path(@receipt.client), notice: 'Receipt was successfully created.' }
         format.json { render :show, status: :created, location: url_receipt(@receipt) }
       else
+        @people = Person.pluck(:name, :id)
         format.html { render :new }
         format.json { render json: @receipt.errors, status: :unprocessable_entity }
       end
@@ -47,6 +48,7 @@ class ReceiptsController < ApplicationController
         format.html { redirect_to client_receipts_path(@receipt.client), notice: 'Receipt was successfully updated.' }
         format.json { render :show, status: :ok, location: url_receipt(@receipt) }
       else
+        @people = Person.pluck(:name, :id)
         format.html { render :edit }
         format.json { render json: @receipt.errors, status: :unprocessable_entity }
       end

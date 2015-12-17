@@ -38,7 +38,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
+        format.html { redirect_to clients_path, notice: 'Client was successfully created.' }
         format.json { render :show, status: :created, location: @client }
       else
         @genders = [["Masculino","M"],["Femenino","F"]]
@@ -53,9 +53,10 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        format.html { redirect_to @client, notice: 'Client was successfully updated.' }
+        format.html { redirect_to clients_path, notice: 'Client was successfully updated.' }
         format.json { render :show, status: :ok, location: @client }
       else
+        @genders = [["Masculino","M"],["Femenino","F"]]
         format.html { render :edit }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end

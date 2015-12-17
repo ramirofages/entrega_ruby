@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Facturas de: <%= @client.first_name %></h1>
+<h3 class="header">Facturas de: <%= @client.first_name %> <%= @client.last_name %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Person</th>
+      <th>Persona facturada</th>
       <th>Description</th>
       <th>Total amount</th>
       <th>Emission date</th>
@@ -28,6 +28,7 @@
   </tbody>
 </table>
 
+<br>
 <%= link_to 'Atras', client_path(@client) %>
 
 <br>

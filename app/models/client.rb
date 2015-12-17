@@ -4,8 +4,9 @@ class Client < ActiveRecord::Base
 	# la informacion de contacto de skype y telefonica son opcionales, 
 	# solo se require el email como info de contacto obligatoria
 	validates :first_name, :last_name, :cuit, :birth_date, :email, :document_number, :gender, presence: true
-	validates :first_name, :last_name, :gender, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters"  }
+	validates :first_name, :last_name, :gender, format: { with: /\A[a-zA-Z ]+\z/, message: "only allows letters"  }
 
+	validates :cuit, 		format: {with: /[0-9]+-[0-9]+-[0-9]+/ , message: "format needs to be x-x-x, with 'x' being any amount of numbers"}
 	validates :email, 		email: true
 	validates :birth_date, 	date: true
 	validates :gender, 		format: { with: /[MF]/, message: "only allows M or F"  }
