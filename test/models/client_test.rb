@@ -16,6 +16,7 @@ setup do
     	c.skype="asd@skype.com"
     end
 
+
     @client_without_contact_info = Client.new do |c|
     	c.first_name="asd"
     	c.last_name="asd"
@@ -41,6 +42,7 @@ end
 
 	test "should not create client without contact info" do
 		
+
 		assert_no_difference('Client.count') do
 			@client_without_contact_info.save
 		end

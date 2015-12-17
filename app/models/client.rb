@@ -1,7 +1,10 @@
 class Client < ActiveRecord::Base
 	has_many :receipts , dependent: :destroy
+
+	# la informacion de contacto de skype y telefonica son opcionales, 
+	# solo se require el email como info de contacto obligatoria
 	validates :first_name, :last_name, :cuit, :birth_date, :email, :document_number, :gender, presence: true
-	validates :first_name, format: { with: /\A[a-zA-Z]+\z/ }
+	validates :first_name, :last_name, :gender, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters"  }
 
 
 	public def personas_mas_facturadas (people_limit)

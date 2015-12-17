@@ -18,7 +18,7 @@
     <%= f.text_field :first_name, :required=>true %>
   </div>
   <div class="field">
-    <%= f.label :last_name :required=>true %><br>
+    <%= f.label :last_name, :required=>true %><br>
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
@@ -42,11 +42,11 @@
     <%= f.text_field :email, :required=>true %>
   </div>
   <div class="field">
-    <%= f.label :phone_number %><br>
+    <%= f.label :phone_number %> <%= f.label " (optional)" %><br>
     <%= f.number_field :phone_number %>
   </div>
   <div class="field">
-    <%= f.label :skype %><br>
+    <%= f.label :skype %>  <%= f.label " (optional)" %><br>
     <%= f.text_field :skype %>
   </div>
   <div class="actions">
