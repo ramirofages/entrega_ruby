@@ -26,4 +26,4 @@
 </p>
 
 <%= link_to 'Edit', edit_client_receipt_path(@receipt.client,@receipt) %> |
-<%= link_to 'Back', client_receipts_path %>
+<%= link_to 'Back', client_receipts_path(@receipt.client) %>

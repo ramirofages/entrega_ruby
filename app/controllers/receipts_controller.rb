@@ -1,6 +1,6 @@
 class ReceiptsController < ApplicationController
   before_action :set_receipt, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_people, only: [:new, :edit ]
   # GET /receipts
   # GET /receipts.json
   def index
@@ -14,13 +14,11 @@ class ReceiptsController < ApplicationController
   def new
     @receipt = Receipt.new
     @receipt.client = Client.find(params.require(:client_id))
-    @people = Person.pluck(:name, :id)
+    
     
   end
 
-  def edit 
-    @receipt.client = Client.find(params.require(:client_id))
-    @people = Person.pluck(:name, :id) 
+  def edit     
   end
 
   # POST /receipts
@@ -33,7 +31,7 @@ class ReceiptsController < ApplicationController
         format.html { redirect_to client_receipts_path(@receipt.client), notice: 'Receipt was successfully created.' }
         format.json { render :show, status: :created, location: url_receipt(@receipt) }
       else
-        @people = Person.pluck(:name, :id)
+        set_people
         format.html { render :new }
         format.json { render json: @receipt.errors, status: :unprocessable_entity }
       end
@@ -48,7 +46,7 @@ class ReceiptsController < ApplicationController
         format.html { redirect_to client_receipts_path(@receipt.client), notice: 'Receipt was successfully updated.' }
         format.json { render :show, status: :ok, location: url_receipt(@receipt) }
       else
-        @people = Person.pluck(:name, :id)
+        set_people
         format.html { render :edit }
         format.json { render json: @receipt.errors, status: :unprocessable_entity }
       end
@@ -69,6 +67,10 @@ class ReceiptsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_receipt
       @receipt = Receipt.find(params[:id])
+    end
+
+    def set_people
+      @people = Person.pluck(:name, :id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

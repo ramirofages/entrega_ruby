@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  before_action :set_genders, only: [:new, :edit ]
 
   # GET /clients
   # GET /clients.json
@@ -19,16 +20,12 @@ class ClientsController < ApplicationController
     @age = now.year - @client.birth_date.year - (@client.birth_date.to_time.change(:year => now.year) > now ? 1 : 0)
   end
 
-  # GET /clients/new
-  def new
-    @client = Client.new
-    @genders = [["Masculino","M"],["Femenino","F"]]
-    
-  end
 
-  # GET /clients/1/edit
+  def new
+    @client = Client.new  end
+
+
   def edit
-    @genders = [["Masculino","M"],["Femenino","F"]]
   end
 
   # POST /clients
@@ -41,7 +38,7 @@ class ClientsController < ApplicationController
         format.html { redirect_to clients_path, notice: 'Client was successfully created.' }
         format.json { render :show, status: :created, location: @client }
       else
-        @genders = [["Masculino","M"],["Femenino","F"]]
+        set_genders
         format.html { render :new }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
@@ -56,7 +53,7 @@ class ClientsController < ApplicationController
         format.html { redirect_to clients_path, notice: 'Client was successfully updated.' }
         format.json { render :show, status: :ok, location: @client }
       else
-        @genders = [["Masculino","M"],["Femenino","F"]]
+        set_genders
         format.html { render :edit }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
@@ -77,6 +74,10 @@ class ClientsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_client
       @client = Client.find(params[:id])
+    end
+
+    def set_genders
+      @genders = [["Masculino","M"],["Femenino","F"]]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -16,7 +16,7 @@
 
   <div class="field">
     <%= f.label "Persona a facturar: " %>
-    <%= f.select(:person_id, options_for_select(@people), {}, { :class =>"browser-default", :required=>true} ) %>
+    <%= f.select(:person_id, options_for_select(@people, @receipt.new_record?? 0 : @receipt.person.id), {}, { :class =>"browser-default", :required=>true} ) %>   
   </div>
   <br>
   <div class="field">
