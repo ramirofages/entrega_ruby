@@ -1,6 +1,13 @@
-<h3 class="header">Editing Receipt</h1>
+<div class="row">
+	<div class="col s6 push-s3" >
+		<h3 class="header">Editar factura</h1>
+		<br>
+		<h4 class="header">Del cliente: <%= @receipt.client.first_name %> </h2>
 
-<%= render 'form' %>
-<br><br>
-<%= link_to 'Show', client_receipt_path(@receipt.client, @receipt)%> |
-<%= link_to 'Back', client_receipts_path(@receipt.client) %>
+		<%= render 'form' %>
+
+		<br><br>
+		<%= link_to 'Show', client_receipt_path(@receipt.client, @receipt)%> |
+		<%= link_to 'Back', client_receipts_path(@receipt.client) %>
+	</div>
+</div>
