@@ -8,7 +8,7 @@ setup do
     	c.first_name="asd"
     	c.last_name="asd"
     	c.birth_date= Date.today
-    	c.cuit=22-22-22
+    	c.cuit="22-22-22"
     	c.document_number=1
     	c.gender="M"
     	c.email="asd@asd.com"
@@ -21,7 +21,7 @@ setup do
     	c.first_name="asd"
     	c.last_name="asd"
     	c.birth_date= Date.today
-    	c.cuit=22-22-22
+    	c.cuit="22-22-22"
     	c.document_number=1
     	c.gender="M"
     end
@@ -30,7 +30,7 @@ setup do
     	c.first_name=123123
     	c.last_name="asd"
     	c.birth_date= Date.today
-    	c.cuit=22-22-22
+    	c.cuit="22-22-22"
     	c.document_number=1
     	c.gender="F"
     	c.email="asd@asd.com"
@@ -56,7 +56,7 @@ end
 	test "should create client" do
 		
 		assert_difference('Client.count') do
-			@client_with_normal_info.save
+			@client_with_normal_info.save!
 		end
 	end
 
