@@ -28,7 +28,7 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.select :gender, options_for_select(@genders,"M"), {}, { :class =>"browser-default", :required=>true} %>
+    <%= f.select :gender, @genders, {}, { :class =>"browser-default", :required=>true} %>
   </div>
   <br>
   
