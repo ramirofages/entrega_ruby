@@ -4,7 +4,7 @@
 		<br>
 		<h4 class="header">Del cliente: <%= @receipt.client.first_name %> </h2>
 
-		<%= render 'form' %>
+		<%= render 'form', action: 'create' %>
 
 		<br><br>
 		<%= link_to 'Back', client_receipts_path(@receipt.client) %>

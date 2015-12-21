@@ -1,4 +1,4 @@
-<%= form_for @receipt, url: {action: "create"} do |f| %>
+<%= form_for @receipt, url: {action: action} do |f| %>
 
   <% if @receipt.errors.any? %>
     <div id="error_explanation">

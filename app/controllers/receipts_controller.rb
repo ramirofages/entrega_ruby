@@ -10,7 +10,7 @@ class ReceiptsController < ApplicationController
    
   end
 
-  # POST
+  
   def new
     @receipt = Receipt.new
     @receipt.client = Client.find(params.require(:client_id))
@@ -18,7 +18,8 @@ class ReceiptsController < ApplicationController
     
   end
 
-  def edit     
+  def edit 
+        
   end
 
   # POST /receipts
@@ -56,9 +57,10 @@ class ReceiptsController < ApplicationController
   # DELETE /receipts/1
   # DELETE /receipts/1.json
   def destroy
+    client = @receipt.client
     @receipt.destroy
     respond_to do |format|
-      format.html { redirect_to receipts_url, notice: 'Receipt was successfully destroyed.' }
+      format.html { redirect_to client_receipts_path(client), notice: 'Receipt was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
